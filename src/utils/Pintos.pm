@@ -354,12 +354,12 @@ sub cyl_sectors {
 
 # read_loader($file_name)
 #
-# Reads and returns the first $LOADER_SIZE bytes in $file_name.
+# Reads and returns the first $LOADER_SIZE bytes in $file_name .
 # If $file_name is undefined, tries to find the default loader.
 # Makes sure that the loader is a reasonable size.
 sub read_loader {
     my ($name) = @_;
-    $name = find_file ("loader.bin") if !defined $name;
+    $name = find_file ("/pintos/userprog/build/loader.bin") if !defined $name;
     die "Cannot find loader\n" if !defined $name;
 
     my ($handle);
