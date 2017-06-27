@@ -29,8 +29,14 @@ enum
     SYS_READDIR,                /* Reads a directory entry. */
     SYS_ISDIR,                  /* Tests if a fd represents a directory. */
     SYS_INUMBER,                 /* Returns the inode number for a fd. */
-	SYS_WEN,					/*PRUEBA*/
-	SYS_SEMINIT					/*Initialize semaphore*/					
+	SYS_SEMINIT,					/*Inicializar semaforos*/
+	SYS_SEMCANT,
+	SYS_SEMWAIT,
+	SYS_SEMPOST,
+	SYS_LOCKINIT,
+	SYS_LOCKACQUIRE,
+	SYS_LOCKRELEASE,
+	SYS_LOCKCANT
   };
 
 #endif /* lib/syscall-nr.h */

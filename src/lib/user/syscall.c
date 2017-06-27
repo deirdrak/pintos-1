@@ -38,8 +38,8 @@
              "pushl %[number]; int $0x30; addl $12, %%esp"      \
                : "=a" (retval)                                  \
                : [number] "i" (NUMBER),                         \
-                 [arg0] "g" (ARG0),                             \
-                 [arg1] "g" (ARG1)                              \
+                 [arg0] "r" (ARG0),                             \
+                 [arg1] "r" (ARG1)                              \
                : "memory");                                     \
           retval;                                               \
         })
@@ -54,9 +54,9 @@
              "pushl %[number]; int $0x30; addl $16, %%esp"      \
                : "=a" (retval)                                  \
                : [number] "i" (NUMBER),                         \
-                 [arg0] "g" (ARG0),                             \
-                 [arg1] "g" (ARG1),                             \
-                 [arg2] "g" (ARG2)                              \
+                 [arg0] "r" (ARG0),                             \
+                 [arg1] "r" (ARG1),                             \
+                 [arg2] "r" (ARG2)                              \
                : "memory");                                     \
           retval;                                               \
         })
@@ -183,16 +183,47 @@ inumber (int fd)
   return syscall1 (SYS_INUMBER, fd);
 }
 
-void WEN(void){
-	syscall0 (SYS_WEN);
+
+int
+semarray(int semCant){
+  return syscall1(SYS_SEMCANT, semCant);
 }
 
-void sem_init(struct semaphore *sema, unsigned value){
-	syscall2 (SYS_SEMINIT, sema, value);
+int 
+seminit(int index, int value){
+  return syscall2(SYS_SEMINIT, index, value);
 }
 
+int
+sem_wait(int index)
+{
+  return syscall1(SYS_SEMWAIT, index);
+}
 
+int
+sem_post(int index){
+  return syscall1(SYS_SEMPOST, index);
+}
 
+int lockarray(int lCant)
+{
+	return syscall1(SYS_LOCKCANT, lCant);
+}
+
+int lock_init(int index)
+{
+	return syscall1(SYS_LOCKINIT, index);
+}
+
+int lock_acquire(int index)
+{
+	return syscall1(SYS_LOCKACQUIRE, index);
+}
+
+int lock_release(int index)
+{
+	return syscall1(SYS_LOCKRELEASE, index);
+}
 
 
 

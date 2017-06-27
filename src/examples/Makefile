@@ -4,7 +4,10 @@ SRCDIR = ..
 # To add a new test, put its name on the PROGS list
 # and then add a name_SRC line that lists its source files.
 PROGS = cat cmp cp echo halt hex-dump ls mcat mcp mkdir pwd rm shell \
-	bubsort insult lineup matmult recursor ReadersWriters
+	bubsort insult lineup matmult recursor DiningPhil Philosophers \
+	DiningPhilM PhilosophersM ReadersWriters Reader Writer \
+	ReadWriteM ReaderM WriterM BoundedBuffer Producer Consumer \
+	BoundedBufferM ProducerM ConsumerM
 
 # Should work from project 2 onward.
 cat_SRC = cat.c
@@ -18,7 +21,6 @@ lineup_SRC = lineup.c
 ls_SRC = ls.c
 recursor_SRC = recursor.c
 rm_SRC = rm.c
-ReadersWriters_SRC=ReadersWriters.c
 
 # Should work in project 3; also in project 4 if VM is included.
 bubsort_SRC = bubsort.c
@@ -31,5 +33,28 @@ mkdir_SRC = mkdir.c
 pwd_SRC = pwd.c
 shell_SRC = shell.c
 
+DiningPhil_SRC=DiningPhil.c
+Philosophers_SRC=Philosophers.c
+DiningPhilM_SRC=DiningPhilM.c
+PhilosophersM_SRC=PhilosophersM.c
+
+ReadersWriters_SRC=ReadersWriters.c
+Reader_SRC=Reader.c
+Writer_SRC=Writer.c
+
+ReadWriteM_SRC=ReadWriteM.c
+ReaderM_SRC=ReaderM.c
+WriterM_SRC=WriterM.c
+
+BoundedBuffer_SRC=BoundedBuffer.c
+Producer_SRC=Producer.c
+Consumer_SRC=Consumer.c
+
+BoundedBufferM_SRC=BoundedBufferM.c
+ProducerM_SRC=ProducerM.c
+ConsumerM_SRC=ConsumerM.c
+
 include $(SRCDIR)/Make.config
 include $(SRCDIR)/Makefile.userprog
+
+

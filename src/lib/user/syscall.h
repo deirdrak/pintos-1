@@ -3,7 +3,6 @@
 
 #include <stdbool.h>
 #include <debug.h>
-#include "synch.h"
 
 /* Process identifier. */
 typedef int pid_t;
@@ -46,7 +45,16 @@ bool readdir (int fd, char name[READDIR_MAX_LEN + 1]);
 bool isdir (int fd);
 int inumber (int fd);
 
-void WEN(void);
-void sem_init(struct semaphore *sema, unsigned value);
+/* Project SisO1 2017 only */
+int semarray(int semCant);
+int seminit(int index, int value);
+int sem_wait(int index);
+int sem_post(int index);
+
+
+int lockarray(int lCant);
+int lock_init(int index);
+int lock_acquire(int index);
+int lock_release(int index);
 
 #endif /* lib/user/syscall.h */
